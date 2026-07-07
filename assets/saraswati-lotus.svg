@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-label="saraswati — lotus mark">
+  <title>saraswati — lotus mark</title>
+  <defs>
+    <linearGradient id="lotusGrad" x1="70" y1="400" x2="730" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8B5CF6"/>
+      <stop offset="1" stop-color="#6D6AF0"/>
+    </linearGradient>
+  </defs>
+  <!-- Faithful reproduction of the reference lotus: an outlined, symmetric
+       five-petal bloom (upright centre petal, two angled side petals, two
+       lower base petals) in the reference's violet→indigo gradient
+       (sampled: violet at left, indigo at right). Reference stroke weight
+       is ~38/800; this standalone cut uses 44 so the same silhouette stays
+       legible when rasterised to favicon-32.png and apple-touch-icon-180.png.
+       Only stroke weight varies between cuts — never the shape. -->
+  <g fill="none" stroke="url(#lotusGrad)" stroke-width="44" stroke-linecap="round" stroke-linejoin="round">
+    <!-- centre petal -->
+    <path d="M400 540 C330 520 299 450 299 360 C299 275 352 213 400 149 C448 213 501 275 501 360 C501 450 470 520 400 540 Z"/>
+    <!-- side petals -->
+    <path d="M420 555 C445 445 502 318 649 246 C662 298 656 360 640 410 C615 470 540 525 420 555 Z"/>
+    <path d="M380 555 C355 445 298 318 151 246 C138 298 144 360 160 410 C185 470 260 525 380 555 Z"/>
+    <!-- base petals -->
+    <path d="M425 565 C515 512 640 455 723 490 C685 565 545 612 425 565 Z"/>
+    <path d="M375 565 C285 512 160 455 77 490 C115 565 255 612 375 565 Z"/>
+  </g>
+</svg>

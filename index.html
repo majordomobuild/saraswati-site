@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>saraswati — a fast, native Markdown editor for your Mac</title>
+  <meta name="description" content="saraswati is a fast, native Markdown reader and editor for macOS. Workspaces, rich text and raw Markdown, Mermaid, Marp, diffs. Local files, free." />
+  <meta name="theme-color" content="#F5F3FC" />
+  <link rel="canonical" href="https://majordomobuild.github.io/saraswati-site/" />
+  <meta property="og:url" content="https://majordomobuild.github.io/saraswati-site/" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+  <link rel="icon" href="assets/saraswati-lotus.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon-180.png" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="saraswati — a fast, native Markdown editor for your Mac" />
+  <meta property="og:description" content="A fast, native Markdown reader and editor for macOS. Workspaces, rich text and raw Markdown, Mermaid, Marp, diffs. Local files, free." />
+  <meta property="og:image" content="https://majordomobuild.github.io/saraswati-site/assets/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="saraswati — a fast, native Markdown editor for your Mac" />
+  <meta name="twitter:description" content="A fast, native Markdown reader and editor for macOS. Local files, free." />
+  <meta name="twitter:image" content="https://majordomobuild.github.io/saraswati-site/assets/og.png" />
+
+  <!-- Newsreader (wordmark/display) · Inter (body) · JetBrains Mono (labels) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip" href="#top">Skip to content</a>
+
+  <!-- The lotus mark — the reference shape, reproduced faithfully. One shape,
+       many cuts: only the stroke-width on each <use> changes (thicker at
+       small sizes), never the geometry. -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="lotusGrad" x1="70" y1="400" x2="730" y2="400" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#8B5CF6"/>
+        <stop offset="1" stop-color="#6D6AF0"/>
+      </linearGradient>
+      <g id="lotusShape" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M400 540 C330 520 299 450 299 360 C299 275 352 213 400 149 C448 213 501 275 501 360 C501 450 470 520 400 540 Z"/>
+        <path d="M420 555 C445 445 502 318 649 246 C662 298 656 360 640 410 C615 470 540 525 420 555 Z"/>
+        <path d="M380 555 C355 445 298 318 151 246 C138 298 144 360 160 410 C185 470 260 525 380 555 Z"/>
+        <path d="M425 565 C515 512 640 455 723 490 C685 565 545 612 425 565 Z"/>
+        <path d="M375 565 C285 512 160 455 77 490 C115 565 255 612 375 565 Z"/>
+      </g>
+    </defs>
+  </svg>
+
+  <!-- ============ MASTHEAD ============ -->
+  <header class="masthead" id="masthead">
+    <div class="wrap masthead__inner">
+      <a class="brand" href="#top" aria-label="saraswati — top of page">
+        <svg class="brand__mark" viewBox="0 0 800 800" aria-hidden="true" focusable="false"><use href="#lotusShape" stroke="url(#lotusGrad)" stroke-width="58"/></svg>
+        <span class="brand__word">saraswati</span>
+      </a>
+      <div class="masthead__right">
+        <span class="pill" aria-label="version 1.0.0">v1.0.0</span>
+        <a class="btn btn--accent btn--sm" id="mastheadCta"
+           href="https://github.com/majordomobuild/releases/releases/latest">
+          Download
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ============ HERO / COVER ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero__grid">
+        <div class="hero__copy reveal">
+          <p class="eyebrow">A Markdown reader &amp; editor — v1.0.0</p>
+          <h1 class="hero__title" id="hero-title">your markdown, <span class="nowrap kept">well-kept.</span></h1>
+          <p class="hero__sub">saraswati is a fast, native Markdown reader and editor for your Mac. Open any folder as a workspace, write in rich text or raw Markdown, and every file stays a plain&nbsp;.md on disk. Free.</p>
+
+          <div class="cta">
+            <a class="btn btn--accent" id="heroCta"
+               href="https://github.com/majordomobuild/releases/releases/latest">
+              Download for macOS
+            </a>
+            <p class="cta__sub">Apple&nbsp;Silicon · v1.0.0 · macOS&nbsp;12+ · signed &amp; notarized</p>
+            <p class="cta__updater">Updates install themselves.</p>
+            <p class="cta__links">
+              <a class="link" href="https://github.com/majordomobuild/releases/releases/latest">All releases &amp; notes →</a>
+              <span class="soon">Windows — coming soon</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="hero__figure reveal">
+          <figure class="shot-figure">
+            <div class="shot shot--hero" role="img" aria-label="welcome.md rendered in saraswati — a native window with the workspace tree at left, a live outline at right, and the page itself in the middle: frontmatter chips, a small lotus ornament above the serif heading “welcome to saraswati.”, and an inline write → render → ship diagram.">
+              <div class="mock mock--hero" aria-hidden="true">
+                <div class="mock__bar">
+                  <span class="mock__dots"><i></i><i></i><i></i></span>
+                  <span class="mock__file">
+                    <svg class="mock__mark" viewBox="0 0 800 800"><use href="#lotusShape" stroke="url(#lotusGrad)" stroke-width="92"/></svg>
+                    welcome.md — notes
+                  </span>
+                  <span class="mock__tabs"><span class="mock__tab is-on">rich text</span><span class="mock__tab">raw</span></span>
+                </div>
+                <div class="mock__body">
+                  <div class="mock__tree">
+                    <p class="mock__pane-label">notes</p>
+                    <ul class="mock-tree">
+                      <li class="mock-tree__dir"><span class="mock-tree__tri">▾</span>essays</li>
+                      <li class="mock-tree__file mock-tree__file--sub">on-keeping.md</li>
+                      <li class="mock-tree__file mock-tree__file--sub">clippings.md</li>
+                      <li class="mock-tree__dir"><span class="mock-tree__tri">▾</span>talks</li>
+                      <li class="mock-tree__file mock-tree__file--sub">deck.md</li>
+                      <li class="mock-tree__file is-active">welcome.md</li>
+                    </ul>
+                  </div>
+                  <div class="mock__doc">
+                    <div class="mock-chips">
+                      <span class="mock-chip"><b>title</b>welcome</span>
+                      <span class="mock-chip"><b>updated</b>2026-07-07</span>
+                    </div>
+                    <svg class="mock-doc__ornament" viewBox="0 0 800 800"><use href="#lotusShape" stroke="url(#lotusGrad)" stroke-width="64"/></svg>
+                    <h4 class="mock-doc__h1">welcome to saraswati.</h4>
+                    <p class="mock-doc__p">Every note stays a plain .md on disk:</p>
+                    <div class="mock-mermaid">
+                      <span class="mock-mermaid__tag">mermaid</span>
+                      <span class="mock-mermaid__node">write</span>
+                      <svg class="mock-mermaid__arrow" viewBox="0 0 24 10"><path d="M0 5h19" /><path d="M17 1.5 22.5 5 17 8.5" fill="none"/></svg>
+                      <span class="mock-mermaid__node">render</span>
+                      <svg class="mock-mermaid__arrow" viewBox="0 0 24 10"><path d="M0 5h19" /><path d="M17 1.5 22.5 5 17 8.5" fill="none"/></svg>
+                      <span class="mock-mermaid__node">ship</span>
+                    </div>
+                    <h5 class="mock-doc__h2">set in place.</h5>
+                    <p class="mock-doc__p">Serif headings, accent-barred; code set on a dark slab:</p>
+                  </div>
+                  <div class="mock__outline">
+                    <p class="mock__pane-label">outline</p>
+                    <ul class="mock-outline">
+                      <li class="is-here">welcome to saraswati.</li>
+                      <li>set in place.</li>
+                      <li>kept honest.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <figcaption class="dimline">
+              <span class="dimline__seg"></span>
+              <span class="dimline__cap">fig. 01 — welcome.md, kept well.</span>
+              <span class="dimline__seg"></span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ THE PAGE, UP CLOSE ============ -->
+    <section class="band band--light" aria-labelledby="plate-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="rule" aria-hidden="true">
+            <span class="rule__line"></span>
+            <svg class="rule__petal" width="22" height="12" viewBox="0 0 22 12" fill="none" stroke="#5B48D6" stroke-width="1.2" aria-hidden="true">
+              <path d="M1.4 10.6 C4.2 5.2 10.6 1.8 20.4 1.4 C18.6 6.6 11.8 10.2 1.4 10.6 Z" stroke-linejoin="round"/>
+            </svg>
+            <span class="rule__line"></span>
+          </span>
+          <p class="folio" id="plate-title">01 — the page, up close</p>
+        </div>
+
+        <div class="plate reveal">
+          <div class="shot" role="img" aria-label="The same welcome note in saraswati, up close — frontmatter chips, an inline Mermaid diagram reading write → render → ship, and a syntax-highlighted code block on a dark slab, set on a clean white page on a lavender ground, with the outline alongside.">
+            <div class="mock mock--plate" aria-hidden="true">
+              <div class="mock__bar">
+                <span class="mock__dots"><i></i><i></i><i></i></span>
+                <span class="mock__file">
+                  <svg class="mock__mark" viewBox="0 0 800 800"><use href="#lotusShape" stroke="url(#lotusGrad)" stroke-width="92"/></svg>
+                  welcome.md — notes
+                </span>
+                <span class="mock__tabs"><span class="mock__tab is-on">rich text</span><span class="mock__tab">raw</span></span>
+              </div>
+              <div class="mock__body">
+                <div class="mock__doc">
+                  <div class="mock-chips">
+                    <span class="mock-chip"><b>title</b>welcome</span>
+                    <span class="mock-chip"><b>updated</b>2026-07-07</span>
+                  </div>
+                  <svg class="mock-doc__ornament" viewBox="0 0 800 800"><use href="#lotusShape" stroke="url(#lotusGrad)" stroke-width="64"/></svg>
+                  <h4 class="mock-doc__h1">welcome to saraswati.</h4>
+                  <p class="mock-doc__p">Every note stays a plain .md on disk:</p>
+                  <div class="mock-mermaid">
+                    <span class="mock-mermaid__tag">mermaid</span>
+                    <span class="mock-mermaid__node">write</span>
+                    <svg class="mock-mermaid__arrow" viewBox="0 0 24 10"><path d="M0 5h19" /><path d="M17 1.5 22.5 5 17 8.5" fill="none"/></svg>
+                    <span class="mock-mermaid__node">render</span>
+                    <svg class="mock-mermaid__arrow" viewBox="0 0 24 10"><path d="M0 5h19" /><path d="M17 1.5 22.5 5 17 8.5" fill="none"/></svg>
+                    <span class="mock-mermaid__node">ship</span>
+                  </div>
+                  <h5 class="mock-doc__h2">set in place.</h5>
+                  <p class="mock-doc__p">Serif headings, accent-barred; code set on a dark slab:</p>
+                  <div class="mock-slab">
+                    <span class="mock-slab__ln"><i>$</i> ls ~/notes</span>
+                    <span class="mock-slab__ln">essays/&#8195;&#8195;talks/&#8195;&#8195;welcome.md</span>
+                    <span class="mock-slab__ln mock-slab__ln--dim"># plain files — nothing to import</span>
+                  </div>
+                  <h5 class="mock-doc__h2">kept honest.</h5>
+                  <p class="mock-doc__quote">a page kept well outlives the app that kept it.</p>
+                </div>
+                <div class="mock__outline">
+                  <p class="mock__pane-label">outline</p>
+                  <ul class="mock-outline">
+                    <li class="is-here">welcome to saraswati.</li>
+                    <li>set in place.</li>
+                    <li>kept honest.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="figcap">fig. 02 — a note in saraswati: a diagram and a code block, set right in place.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FOUR FAVORITES ============ -->
+    <section class="band band--light" aria-labelledby="features-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="rule" aria-hidden="true">
+            <span class="rule__line"></span>
+            <svg class="rule__petal" width="22" height="12" viewBox="0 0 22 12" fill="none" stroke="#5B48D6" stroke-width="1.2" aria-hidden="true">
+              <path d="M1.4 10.6 C4.2 5.2 10.6 1.8 20.4 1.4 C18.6 6.6 11.8 10.2 1.4 10.6 Z" stroke-linejoin="round"/>
+            </svg>
+            <span class="rule__line"></span>
+          </span>
+          <p class="folio" id="features-title">02 — four you'll tell a friend about</p>
+        </div>
+
+        <ol class="features">
+          <li class="feature reveal">
+            <span class="feature__idx" aria-hidden="true">01</span>
+            <h3 class="feature__h">slides from plain markdown.</h3>
+            <p class="feature__b">Add <code>marp: true</code> and a note becomes a deck — preview beside the source, present fullscreen, export to PDF.</p>
+          </li>
+          <li class="feature reveal">
+            <span class="feature__idx" aria-hidden="true">02</span>
+            <h3 class="feature__h">typeset, not just rendered.</h3>
+            <p class="feature__b">An editorial serif, accent-barred headings, code on dark slabs. Your pages are set like print, not dumped like a preview.</p>
+          </li>
+          <li class="feature reveal">
+            <span class="feature__idx" aria-hidden="true">03</span>
+            <h3 class="feature__h">frontmatter without the yaml.</h3>
+            <p class="feature__b">Metadata becomes chips you edit. Fields you don't touch round-trip byte-for-byte, so diffs stay clean.</p>
+          </li>
+          <li class="feature reveal">
+            <span class="feature__idx" aria-hidden="true">04</span>
+            <h3 class="feature__h">writes both ways.</h3>
+            <p class="feature__b">Rich text or raw Markdown — switch whenever; every file stays a plain&nbsp;.md.</p>
+          </li>
+        </ol>
+
+        <p class="features__more">And the rest of the kit: workspaces from any folder, full-text search, a live outline, inline Mermaid, and side-by-side diffs.</p>
+      </div>
+    </section>
+
+    <!-- ============ SEE IT WORK ============ -->
+    <section class="band band--light" aria-labelledby="see-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="rule" aria-hidden="true">
+            <span class="rule__line"></span>
+            <svg class="rule__petal" width="22" height="12" viewBox="0 0 22 12" fill="none" stroke="#5B48D6" stroke-width="1.2" aria-hidden="true">
+              <path d="M1.4 10.6 C4.2 5.2 10.6 1.8 20.4 1.4 C18.6 6.6 11.8 10.2 1.4 10.6 Z" stroke-linejoin="round"/>
+            </svg>
+            <span class="rule__line"></span>
+          </span>
+          <p class="folio" id="see-title">03 — see it work</p>
+        </div>
+
+        <div class="shots">
+          <figure class="showcase reveal">
+            <div class="shot" role="img" aria-label="talks/deck.md previewed as a Marp deck in saraswati — the raw source at left with marp: true in its frontmatter, a rendered title slide reading “your markdown, well-kept.” at right, a second slide below, paginated 1 of 3.">
+              <div class="mock mock--deck" aria-hidden="true">
+                <div class="mock__bar">
+                  <span class="mock__dots"><i></i><i></i><i></i></span>
+                  <span class="mock__file">
+                    <svg class="mock__mark" viewBox="0 0 800 800"><use href="#lotusShape" stroke="url(#lotusGrad)" stroke-width="92"/></svg>
+                    deck.md — talks
+                  </span>
+                  <span class="mock__hint">⌘⏎ present</span>
+                </div>
+                <div class="mock__body">
+                  <div class="mock__src">
+                    <span class="mock-raw__ln mock-raw__ln--meta">---</span>
+                    <span class="mock-raw__ln"><i class="tk-key">marp:</i> <i class="tk-val">true</i></span>
+                    <span class="mock-raw__ln"><i class="tk-key">paginate:</i> <i class="tk-val">true</i></span>
+                    <span class="mock-raw__ln mock-raw__ln--meta">---</span>
+                    <span class="mock-raw__ln">&nbsp;</span>
+                    <span class="mock-raw__ln mock-raw__ln--h"># your markdown,</span>
+                    <span class="mock-raw__ln mock-raw__ln--h"># well-kept.</span>
+                    <span class="mock-raw__ln">&nbsp;</span>
+                    <span class="mock-raw__ln">plain .md in,</span>
+                    <span class="mock-raw__ln">slides out.</span>
+                    <span class="mock-raw__ln">&nbsp;</span>
+                    <span class="mock-raw__ln mock-raw__ln--meta">---</span>
+                    <span class="mock-raw__ln">&nbsp;</span>
+                    <span class="mock-raw__ln mock-raw__ln--h">## why plain files</span>
+                  </div>
+                  <div class="mock__preview">
+                    <div class="mock-slide">
+                      <svg class="mock-slide__mark" viewBox="0 0 800 800"><use href="#lotusShape" stroke="url(#lotusGrad)" stroke-width="88"/></svg>
+                      <p class="mock-slide__title">your markdown,<br/>well-kept.</p>
+                      <p class="mock-slide__sub">plain .md in, slides out.</p>
+                    </div>
+                    <div class="mock-slide mock-slide--next">
+                      <p class="mock-slide__h2">why plain files</p>
+                      <p class="mock-slide__li">diffs stay clean</p>
+                    </div>
+                    <span class="mock__page">1 / 3</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <figcaption class="figcap">fig. 03 — a note as a deck: <code>marp: true</code> up top, present with&nbsp;⌘⏎.</figcaption>
+          </figure>
+
+          <figure class="showcase reveal">
+            <div class="shot" role="img" aria-label="welcome.md in saraswati's raw view — the same page as plain Markdown source in a monospace editor with line numbers: frontmatter, a lotus image line, the heading, and the start of the mermaid block.">
+              <div class="mock mock--raw" aria-hidden="true">
+                <div class="mock__bar">
+                  <span class="mock__dots"><i></i><i></i><i></i></span>
+                  <span class="mock__file">
+                    <svg class="mock__mark" viewBox="0 0 800 800"><use href="#lotusShape" stroke="url(#lotusGrad)" stroke-width="92"/></svg>
+                    welcome.md — notes
+                  </span>
+                  <span class="mock__tabs"><span class="mock__tab">rich text</span><span class="mock__tab is-on">raw</span></span>
+                </div>
+                <div class="mock__body">
+                  <div class="mock__raw">
+                    <span class="mock-raw__ln"><b>1</b><i class="tk-meta">---</i></span>
+                    <span class="mock-raw__ln"><b>2</b><i class="tk-key">title:</i> <i class="tk-val">welcome</i></span>
+                    <span class="mock-raw__ln"><b>3</b><i class="tk-key">updated:</i> <i class="tk-val">2026-07-07</i></span>
+                    <span class="mock-raw__ln"><b>4</b><i class="tk-meta">---</i></span>
+                    <span class="mock-raw__ln"><b>5</b></span>
+                    <span class="mock-raw__ln"><b>6</b><i class="tk-meta">![lotus](assets/lotus.svg)</i></span>
+                    <span class="mock-raw__ln"><b>7</b></span>
+                    <span class="mock-raw__ln"><b>8</b><i class="tk-h"># welcome to saraswati.</i></span>
+                    <span class="mock-raw__ln"><b>9</b></span>
+                    <span class="mock-raw__ln"><b>10</b>Every note stays a plain .md on disk:</span>
+                    <span class="mock-raw__ln"><b>11</b></span>
+                    <span class="mock-raw__ln"><b>12</b><i class="tk-meta">```mermaid</i></span>
+                    <span class="mock-raw__ln"><b>13</b>flowchart LR</span>
+                    <span class="mock-raw__ln"><b>14</b>&nbsp;&nbsp;write --&gt; render --&gt; ship</span>
+                    <span class="mock-raw__ln"><b>15</b><i class="tk-meta">```</i></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <figcaption class="figcap">fig. 04 — the same page, raw: plain Markdown, one flip away.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TRUST STRIP ============ -->
+    <section class="trust" aria-label="What saraswati guarantees">
+      <div class="wrap trust__row">
+        <span class="trust__item"><b>Local</b> — your files never leave your Mac</span>
+        <span class="dot" aria-hidden="true">·</span>
+        <span class="trust__item"><b>Free</b> — no account, no tiers</span>
+        <span class="dot" aria-hidden="true">·</span>
+        <span class="trust__item"><b>Signed &amp; notarized</b> — every release</span>
+        <span class="dot" aria-hidden="true">·</span>
+        <span class="trust__item"><b>Auto-updates</b> — built in</span>
+      </div>
+    </section>
+
+    <!-- ============ CLOSING SPREAD ============ -->
+    <section class="close" aria-labelledby="close-title">
+      <svg class="close__watermark" viewBox="0 0 800 800" aria-hidden="true" focusable="false"><use href="#lotusShape" stroke="url(#lotusGrad)" stroke-width="38"/></svg>
+      <div class="wrap close__inner reveal">
+        <h2 class="close__title" id="close-title">read something <span class="nowrap kept">well-made.</span></h2>
+        <p class="close__line">saraswati is free, runs on your Mac, and updates itself.</p>
+        <p class="close__release">saraswati v1.0.0</p>
+        <div class="cta cta--center">
+          <a class="btn btn--accent" id="closeCta"
+             href="https://github.com/majordomobuild/releases/releases/latest">
+            Download for macOS
+          </a>
+          <p class="cta__sub">Apple&nbsp;Silicon · v1.0.0 · macOS&nbsp;12+ · signed &amp; notarized</p>
+          <p class="cta__links">
+            <a class="link" href="https://github.com/majordomobuild/releases/releases/latest">All releases &amp; notes →</a>
+            <span class="soon">Windows — coming soon</span>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ COLOPHON / FOOTER ============ -->
+  <footer class="colophon">
+    <div class="wrap colophon__inner">
+      <span class="colophon__brand">
+        <svg class="colophon__mark" viewBox="0 0 800 800" aria-hidden="true" focusable="false"><use href="#lotusShape" stroke="url(#lotusGrad)" stroke-width="82"/></svg>
+        <span>saraswati <span class="num">v1.0.0</span></span>
+      </span>
+      <span class="colophon__meta">
+        <a class="link" href="https://github.com/majordomobuild/releases/releases/latest">releases on GitHub</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <span>© 2026</span>
+      </span>
+      <p class="colophon__note">A concept rebrand of korq — the download is the current korq build.</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
