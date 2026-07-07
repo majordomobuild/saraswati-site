@@ -1,7 +1,7 @@
 /* ===========================================================
    saraswati landing page — "lavender, kept calm"
-   korq's editorial bones in the Lavender room: pale lavender
-   ground, deep plum ink, ONE refined violet for every action.
+   Editorial bones in the Lavender room: pale lavender ground,
+   deep plum ink, ONE refined violet for every action.
    Newsreader (display) · Inter (body) · JetBrains Mono (labels)
    =========================================================== */
 
@@ -165,6 +165,11 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
 .eyebrow { margin: 0; }
 .hero__sub { font-size: 1.1875rem; line-height: 1.7; color: var(--muted); max-width: 62ch; }
 
+/* dictionary-style pronunciation cue, sat above the eyebrow */
+.pronounce { font-family: var(--font-mono); font-size: .8125rem; letter-spacing: .01em; color: var(--muted); margin: 0 0 .55rem; }
+.pronounce__word { color: var(--ink); }
+.pronounce__say { color: var(--accent); margin-left: .55rem; }
+
 .cta { margin-top: 1.75rem; }
 .cta__sub { font-family: var(--font-mono); font-size: .8125rem; color: var(--muted); margin-top: .75rem; }
 .cta__updater { font-size: .9375rem; color: var(--muted); margin-top: .5rem; }
@@ -175,9 +180,9 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
   padding: .2rem .6rem; cursor: default;
 }
 
-/* --- the app, in a frame --- korq's screenshot framing, retinted:
-   the elevation shadow is cast in deep violet (#3A2C6E), not korq's
-   warm brown, so the plates sit in the Lavender room. */
+/* --- the app, in a frame --- editorial screenshot framing:
+   the elevation shadow is cast in deep violet (#3A2C6E) so the
+   plates sit in the Lavender room. */
 .hero__figure { display: flex; justify-content: center; }
 .shot-figure { margin: 0; display: flex; flex-direction: column; align-items: center; width: 100%; }
 .shot {
@@ -256,6 +261,31 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
 .trust__item { font-size: .9375rem; color: var(--muted); }
 .trust__item b { font-family: var(--font-mono); font-weight: 500; font-size: .8125rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ink); }
 .trust .dot { color: var(--faint); }
+
+/* ============ ON THE NAME ============ */
+.onname {
+  display: grid; grid-template-columns: auto 1fr; align-items: center;
+  gap: clamp(1.5rem, 4vw, 3rem); max-width: 760px;
+}
+.onname__lotus { width: clamp(84px, 12vw, 124px); height: auto; flex: none; }
+.onname__entry {
+  font-family: var(--font-mono); font-size: .8125rem; letter-spacing: .01em;
+  color: var(--muted); display: flex; flex-wrap: wrap; align-items: baseline; gap: .4rem .75rem;
+}
+.onname__word { color: var(--ink); }
+.onname__say { color: var(--accent); }
+.onname__etym { color: var(--faint); }
+.onname__etym i { font-family: var(--font-display); font-style: italic; }
+.onname__gloss {
+  font-family: var(--font-display); font-weight: 500;
+  font-size: clamp(1.25rem, 1.05rem + 1vw, 1.6rem); line-height: 1.42;
+  letter-spacing: -0.006em; color: var(--ink); text-wrap: pretty;
+  margin-top: .9rem; max-width: 34ch;
+}
+@media (max-width: 620px) {
+  .onname { grid-template-columns: 1fr; gap: 1.1rem; }
+  .onname__lotus { width: 72px; }
+}
 
 /* ============ CLOSING SPREAD ============ */
 .close { position: relative; background: var(--ground); padding: clamp(4rem, 10vw, 7rem) 0; overflow: hidden; }
