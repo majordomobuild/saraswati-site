@@ -62,7 +62,7 @@
      Reads the same manifest the in-app updater uses and overwrites the
      version text, download links, and release date. The hardcoded values
      in the HTML are the fallback when JS or the fetch is unavailable. */
-  var MANIFEST_URL = "https://majordomobuild.github.io/releases/latest-saraswati.json";
+  var MANIFEST_URL = "https://majordomobuild.github.io/saraswati-releases/latest-saraswati.json";
 
   function applyRelease(m) {
     if (!m || !/^\d+\.\d+\.\d+$/.test(String(m.version))) return;
@@ -70,7 +70,7 @@
     var plat = m.platforms && m.platforms["darwin-aarch64"];
     var base = (plat && typeof plat.url === "string")
       ? plat.url.slice(0, plat.url.lastIndexOf("/"))
-      : "https://github.com/majordomobuild/releases/releases/download/saraswati-v" + v;
+      : "https://github.com/majordomobuild/saraswati-releases/releases/download/saraswati-v" + v;
     var dmg = base + "/Saraswati_" + v + "_aarch64.dmg";
 
     Array.prototype.slice.call(document.querySelectorAll("[data-saraswati-version]"))
