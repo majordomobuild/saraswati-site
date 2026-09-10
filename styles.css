@@ -1,5 +1,5 @@
 /* ===========================================================
-   saraswati landing page — "lavender, kept calm"
+   lotus landing page — "lavender, kept calm"
    Editorial bones in the Lavender room: pale lavender ground,
    deep plum ink, ONE refined violet for every action.
    Newsreader (display) · Inter (body) · JetBrains Mono (labels)
@@ -142,14 +142,18 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
 }
 .brand { display: inline-flex; align-items: center; gap: .7rem; text-decoration: none; }
 .brand__mark { width: 48px; height: 48px; flex: none; }
-.brand__word {
+.brand__word, .brand__product {
   font-family: var(--font-display); font-weight: 550; font-size: 1.375rem;
   font-variation-settings: "opsz" 13;
   letter-spacing: -0.005em; color: var(--ink); line-height: 1;
   transform: translateY(1px); /* optical: sit the flat lowercase word on the mark's waterline */
 }
+.brand__product { margin-left: .5rem; opacity: .8; } /* the product, secondary to the wordmark */
 .masthead__right { display: inline-flex; align-items: center; gap: .75rem; }
-@media (max-width: 460px) { .pill { display: none; } }
+@media (max-width: 500px) { .pill { display: none; } } /* was 460px; the wider brand + product wordmarks need ~474px before the pill fits */
+/* Narrow masthead: the brand + product wordmarks need ~381px beside the Download
+   button; below that the product name yields (it is in the hero eyebrow just below). */
+@media (max-width: 420px) { .brand__product { display: none; } }
 
 /* ============ HERO ============ */
 .hero { background: var(--ground); padding: clamp(3rem, 8vw, 6rem) 0 clamp(3.5rem, 9vw, 6.5rem); }

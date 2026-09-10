@@ -1,4 +1,4 @@
-/* saraswati landing page — progressive enhancement only.
+/* lotus landing page — progressive enhancement only.
    With JS disabled: all content is visible and the header Download
    button ships as a solid accent link, so the download is always reachable. */
 (function () {
@@ -62,7 +62,7 @@
      Reads the same manifest the in-app updater uses and overwrites the
      version text, download links, and release date. The hardcoded values
      in the HTML are the fallback when JS or the fetch is unavailable. */
-  var MANIFEST_URL = "https://majordomobuild.github.io/saraswati-releases/latest-saraswati.json";
+  var MANIFEST_URL = "https://majordomobuild.github.io/saraswati-releases/latest-lotus.json";
 
   function applyRelease(m) {
     if (!m || !/^\d+\.\d+\.\d+$/.test(String(m.version))) return;
@@ -70,18 +70,18 @@
     var plat = m.platforms && m.platforms["darwin-aarch64"];
     var base = (plat && typeof plat.url === "string")
       ? plat.url.slice(0, plat.url.lastIndexOf("/"))
-      : "https://github.com/majordomobuild/saraswati-releases/releases/download/saraswati-v" + v;
-    var dmg = base + "/Saraswati_" + v + "_aarch64.dmg";
+      : "https://github.com/majordomobuild/saraswati-releases/releases/download/lotus-v" + v;
+    var dmg = base + "/Lotus_" + v + "_aarch64.dmg";
 
-    Array.prototype.slice.call(document.querySelectorAll("[data-saraswati-version]"))
+    Array.prototype.slice.call(document.querySelectorAll("[data-lotus-version]"))
       .forEach(function (el) {
         el.textContent = "v" + v;
         if (el.hasAttribute("aria-label")) el.setAttribute("aria-label", "version " + v);
       });
-    Array.prototype.slice.call(document.querySelectorAll("a[data-saraswati-dl]"))
+    Array.prototype.slice.call(document.querySelectorAll("a[data-lotus-dl]"))
       .forEach(function (a) { a.href = dmg; });
 
-    var rel = document.querySelector("[data-saraswati-reldate]");
+    var rel = document.querySelector("[data-lotus-reldate]");
     if (rel && m.pub_date) {
       var d = new Date(m.pub_date);
       if (!isNaN(d)) {
