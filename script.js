@@ -68,10 +68,24 @@
     if (!m || !/^\d+\.\d+\.\d+$/.test(String(m.version))) return;
     var v = m.version;
     var plat = m.platforms && m.platforms["darwin-aarch64"];
-    var base = (plat && typeof plat.url === "string")
-      ? plat.url.slice(0, plat.url.lastIndexOf("/"))
-      : "https://github.com/majordomobuild/saraswati-releases/releases/download/lotus-v" + v;
-    var dmg = base + "/Lotus_" + v + "_aarch64.dmg";
+    // The href must come FROM the manifest, never from a guessed filename.
+    //
+    // This used to build `Lotus_<v>_aarch64.dmg` by hand. When lotus-v0.54.1
+    // shipped without a .dmg (bundle targets briefly dropped it so releases
+    // would stop depending on a Finder AppleScript), this function happily
+    // overwrote the HTML's safe `/releases/latest` href with a URL that 404s
+    // — so the page advertised a download that did not exist.
+    //
+    // `plat.url` is the one asset that is guaranteed present: the updater
+    // verifies it, and the release cannot publish without it. So the
+    // versioned RELEASE PAGE derived from it is always right, and lists
+    // whatever that release actually contains — .dmg when there is one, the
+    // tarball otherwise. A filename this page invents can go stale the next
+    // time bundling changes; a link the manifest hands us cannot.
+    if (!plat || typeof plat.url !== "string") return;
+    var base = plat.url.slice(0, plat.url.lastIndexOf("/"));
+    var releasePage = base
+      .replace("/releases/download/", "/releases/tag/");
 
     Array.prototype.slice.call(document.querySelectorAll("[data-lotus-version]"))
       .forEach(function (el) {
@@ -79,7 +93,7 @@
         if (el.hasAttribute("aria-label")) el.setAttribute("aria-label", "version " + v);
       });
     Array.prototype.slice.call(document.querySelectorAll("a[data-lotus-dl]"))
-      .forEach(function (a) { a.href = dmg; });
+      .forEach(function (a) { a.href = releasePage; });
 
     var rel = document.querySelector("[data-lotus-reldate]");
     if (rel && m.pub_date) {
