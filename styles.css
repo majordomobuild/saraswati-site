@@ -142,18 +142,29 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
 }
 .brand { display: inline-flex; align-items: center; gap: .7rem; text-decoration: none; }
 .brand__mark { width: 48px; height: 48px; flex: none; }
-.brand__word, .brand__product {
+/* Product-first lockup. Both names used to sit at the same family, size and
+   weight, and it was the PRODUCT that carried the opacity — so Lotus rendered
+   fainter than the brand and the two read as one compound word. The app is
+   the thing on offer, so it is the wordmark; the brand is its byline. The
+   story behind the name is told properly in the "on the name" section below,
+   which is why the masthead does not have to carry it. */
+.brand__lockup { display: inline-flex; flex-direction: column; align-items: flex-start; gap: .15rem; }
+.brand__product {
   font-family: var(--font-display); font-weight: 550; font-size: 1.375rem;
   font-variation-settings: "opsz" 13;
   letter-spacing: -0.005em; color: var(--ink); line-height: 1;
-  transform: translateY(1px); /* optical: sit the flat lowercase word on the mark's waterline */
 }
-.brand__product { margin-left: .5rem; opacity: .8; } /* the product, secondary to the wordmark */
+/* --muted, not --faint: at this size the byline needs the 6.6:1 token. */
+.brand__by {
+  font-family: var(--font-body); font-size: .75rem; font-weight: 500;
+  letter-spacing: .04em; color: var(--muted); line-height: 1;
+}
 .masthead__right { display: inline-flex; align-items: center; gap: .75rem; }
-@media (max-width: 500px) { .pill { display: none; } } /* was 460px; the wider brand + product wordmarks need ~474px before the pill fits */
-/* Narrow masthead: the brand + product wordmarks need ~381px beside the Download
-   button; below that the product name yields (it is in the hero eyebrow just below). */
-@media (max-width: 420px) { .brand__product { display: none; } }
+@media (max-width: 500px) { .pill { display: none; } } /* the stacked lockup is narrower than the old side-by-side pair, but the Download button still needs this room */
+/* Narrow masthead: the BYLINE yields, never the product name. The old rule hid
+   the product and left a masthead reading only "saraswati" — on a page that is
+   Lotus's. The brand is still named in the "on the name" section and the footer. */
+@media (max-width: 420px) { .brand__by { display: none; } }
 
 /* ============ HERO ============ */
 .hero { background: var(--ground); padding: clamp(3rem, 8vw, 6rem) 0 clamp(3.5rem, 9vw, 6.5rem); }
